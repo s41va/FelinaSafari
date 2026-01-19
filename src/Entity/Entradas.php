@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use Doctrine\ORM\Mapping as ORM;
 
 class Entradas
 {
@@ -9,6 +10,7 @@ class Entradas
     #[ORM\Column(type: 'integer', unique: true)]
     private ?int $entrada_id = null;
     #[ORM\Column(type: 'string', unique: true)]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'user_id')]
     private ?string $user_id = null;
     #[ORM\Column(type: 'string', length: 50)]
     #[Assert\NotBlank]

@@ -1,0 +1,61 @@
+-- Creación de la base de datos (Opcional)
+-- CREATE DATABASE reserva_felinos;
+-- \c reserva_felinos;
+
+---
+-- 1. TABLA: Usuarios
+---
+CREATE TABLE usuarios (
+    usuario_id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL, -- Almacena la contraseña encriptada
+    telefono VARCHAR(20),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+---
+-- 2. TABLA: Felinos (Especies)
+---
+CREATE TABLE felinos (
+    felino_id SERIAL PRIMARY KEY,
+    nombre_comun VARCHAR(100) NOT NULL,
+    nombre_cientifico VARCHAR(100) NOT NULL,
+    estado_conservacion VARCHAR(50), -- Ej: Vulnerable, En peligro, etc.
+    dieta TEXT,
+    habitat TEXT,
+    url_multimedia VARCHAR(255) -- Link a imagen o video
+);
+
+---
+-- 3. TABLA: Entradas
+---
+CREATE TABLE entradas (
+    entrada_id SERIAL PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    tipo_entrada VARCHAR(50) CHECK (tipo_entrada IN ('general', 'infantil', 'grupal')),
+    fecha_visita TIMESTAMP NOT NULL,
+    monto_pagado DECIMAL(10, 2) NOT NULL,
+    fecha_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_usuario_entrada
+        FOREIGN KEY (usuario_id)
+        REFERENCES usuarios(usuario_id)
+        ON DELETE CASCADE
+);
+
+---
+-- 4. TABLA: Donaciones
+---
+CREATE TABLE donaciones (
+    donacion_id SERIAL PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    monto_donado DECIMAL(12, 2) NOT NULL,
+    fecha_donacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    proyecto_apoyado VARCHAR(255) NOT NULL,
+
+    CONSTRAINT fk_usuario_donacion
+        FOREIGN KEY (usuario_id)
+        REFERENCES usuarios(usuario_id)
+        ON DELETE SET NULL -- Si el usuario se borra, mantenemos el registro de la donación
+);

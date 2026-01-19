@@ -8,6 +8,7 @@ class User
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer', unique: true)]
+    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Entradas::class)]
     private ?int $user_id = null;
     #[ORM\Column(type: 'string', length: 50, unique: true)]
     private ?string $username = null;
