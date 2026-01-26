@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\IntegerType;
 use PharIo\Manifest\Email;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,14 +26,12 @@ class SignUpType
                 'attr' => ['placeholder' => 'Introduce tu email'],
                 'required' => true,
             ])
-            ->add('password', PasswordType::class, [
-                'label' => 'Contraseña',
-                'attr' => ['placeholder' => 'Introduce tu contraseña'],
-                'required' => true,
-            ])
-            ->add('password_repeat', PasswordType::class, [
-                'label' => 'Contraseña',
-                'attr' => ['placeholder' => 'Introduce de nuevo contraseña'],
+            ->add('password', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'invalid_message' => 'Las contraseñas deben coincidir.',
+                'first_options' => ['label' => 'Contraseña', 'attr' => ['placeholder' => 'Contraseña']],
+                'second_options' => ['label' => 'Repite la contraseña', 'attr' => ['placeholder' =>
+                    'Repite la contraseña']],
                 'required' => true,
             ])
             ->add('telefono', IntegerType::class, [
