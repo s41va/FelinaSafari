@@ -26,7 +26,7 @@
                     <li class="nav-item"><a class="nav-link px-3 text-white" href="#">Especies</a></li>
                     <li class="nav-item"><a class="nav-link px-3 text-white" href="#">Horarios</a></li>
                     <li class="nav-item ms-lg-3">
-                        <a class="btn btn-warning fw-bold px-4" href="#">Comprar Entradas</a>
+                        <a class="btn btn-warning fw-bold px-4" href="#">Comprar entradas</a>
                     </li>
                 </ul>
             </div>
@@ -56,9 +56,9 @@
 
         <div class="row g-4">
             {% set residentes = [
-                {'nombre': 'Lince Ibérico', 'info': 'Especie clave de nuestra provincia de Jaén.', 'img': 'https://images.unsplash.com/photo-1591824438708-ce405f39ba3d?w=500'},
-                {'nombre': 'Tigre de Bengala', 'info': 'Animales rescatados de entornos urbanos.', 'img': 'https://images.unsplash.com/photo-1508817628294-432e70c0077a?w=500'},
-                {'nombre': 'León de Atlas', 'info': 'Majestuosidad y fuerza en semilibertad.', 'img': 'https://images.unsplash.com/photo-1614027164847-1b28096a6f57?w=500'}
+                {'nombre': 'Lince Ibérico', 'info': 'Especie clave de nuestra provincia de Jaén.', 'img': 'img/lince.webp'},
+                {'nombre': 'Tigre de Bengala', 'info': 'Animales rescatados de entornos urbanos.', 'img': 'img/tigreBengala.jpg'},
+                {'nombre': 'León de Atlas', 'info': 'Majestuosidad y fuerza en semilibertad.', 'img': 'img/leonAtlas.jpg'}
             ] %}
 
             {% for felino in residentes %}
@@ -68,7 +68,7 @@
                         <div class="card-body p-4 text-center">
                             <h4 class="card-title fw-bold">{{ felino.nombre }}</h4>
                             <p class="card-text text-muted">{{ felino.info }}</p>
-                            <a href="#" class="btn btn-outline-dark rounded-pill px-4 mt-2">Conocer más</a>
+                            <a href="{{ path('app_felinos') }}" class="btn btn-outline-dark rounded-pill px-4 mt-2">Conocer más</a>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
     {# Footer #}
     {#<footer class="text-light py-4" style="background-color: #1a2f23;">
         <div class="container text-center">
-            <p class="mb-1"><strong>Reserva de Felinos Jaén</strong> - El paraíso de los grandes gatos.</p>
+            <p class="mb-1"><strong>Reserva de felinos Jaén</strong> - El paraíso de los grandes gatos.</p>
             <p class="small text-white-50">© {{ "now"|date("Y") }} Todos los derechos reservados.</p>
         </div>
     </footer>#}

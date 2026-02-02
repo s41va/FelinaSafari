@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
-class ComprarEntradasController
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+class ComprarEntradasController extends AbstractController
 {
     #[Route('/entradas', name: 'app_entradas')]
     public function index(): Response

@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home Felina{% endblock %}
+
+
+{% block body %}
+
+    <div class="container my-5 shadow-lg p-0 rounded-4 overflow-hidden bg-light">
+        <div class="p-4 border-bottom border-warning border-4" style="background-color: #1a2f23;">
+            <h3 class="text-white fw-bold mb-0">
+                <i class="bi bi-info-circle-fill me-2 text-warning"></i>Información General sobre los Felinos
+            </h3>
+        </div>
+
+        <div class="p-4 p-md-5">
+            <div class="row mb-5">
+                <div class="col-lg-8">
+                    <p class="lead text-dark" style="text-align: justify;">
+                        Los félidos (Felidae), coloquialmente llamados <span class="badge bg-success" style="background-color: #2d4d3a !important;">felinos</span>, son una familia de mamíferos placentarios del orden Carnivora. Poseen un cuerpo esbelto, oído agudo, hocico corto y excelente vista.
+                    </p>
+                    <p class="text-muted" style="text-align: justify;">
+                        Son los mamíferos cazadores más sigilosos. La mayoría consume exclusivamente carne e ignora cualquier otra comida que no sea una presa viva. La capturan con sus afiladas garras y suelen matarla de un único y tenaz mordisco en la columna vertebral. A excepción de los guepardos, todos pueden retraer sus uñas dentro de una vaina protectora.
+                    </p>
+                </div>
+                <div class="col-lg-4 border-start border-warning d-none d-lg-block">
+                    <div class="p-3 bg-white shadow-sm rounded">
+                        <h6 class="fw-bold text-uppercase" style="color: #1a2f23;">Dato Curioso</h6>
+                        <p class="small mb-0">Sus fibras musculares son <strong>3 veces más potentes</strong> que las de atletas humanos en relación a su tamaño.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="mb-4 fw-bold" style="color: #1a2f23;">Clasificación Taxonómica</h4>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-header text-white fw-bold" style="background-color: #2d4d3a;">
+                            Subfamilia Felinae
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush scroll-taxonomia" style="max-height: 400px; overflow-y: auto;">
+                                <li class="list-group-item bg-light small fw-bold text-muted text-uppercase">Género Acinonyx</li>
+                                <li class="list-group-item px-4">Acinonyx jubatus - <span class="text-success fw-bold">Guepardo</span></li>
+
+                                <li class="list-group-item bg-light small fw-bold text-muted text-uppercase">Género Caracal</li>
+                                <li class="list-group-item px-4 border-bottom-0 pb-1">Caracal caracal - Caracal</li>
+                                <li class="list-group-item px-4 pt-0">Caracal aurata - Gato dorado africano</li>
+
+                                <li class="list-group-item bg-light small fw-bold text-muted text-uppercase">Género Felis</li>
+                                <li class="list-group-item px-4">Felis margarita - <span class="text-success fw-bold">Gato del desierto</span></li>
+                                <li class="list-group-item px-4">Felis catus - Gato doméstico</li>
+                                <li class="list-group-item px-4">Felis silvestris - Gato montés</li>
+
+                                <li class="list-group-item bg-light small fw-bold text-muted text-uppercase">Género Leopardus</li>
+                                <li class="list-group-item px-4">Leopardus pardalis - <span class="text-success fw-bold">Ocelote</span></li>
+                                <li class="list-group-item px-4">Leopardus wiedii - Tigrillo</li>
+
+                                <li class="list-group-item bg-light small fw-bold text-muted text-uppercase">Género Lynx</li>
+                                <li class="list-group-item px-4"><span class="badge bg-warning text-dark me-2">Peligro</span> Lynx pardinus - Lince ibérico</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-header text-white fw-bold" style="background-color: #bfa332;">
+                            Subfamilia Pantherinae
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-light small fw-bold text-muted text-uppercase">Género Panthera (Grandes Felinos)</li>
+                                <li class="list-group-item px-4 d-flex justify-content-between align-items-center">
+                                    Panthera leo - León <i class="bi bi-star-fill text-warning"></i>
+                                </li>
+                                <li class="list-group-item px-4">Panthera tigris - Tigre</li>
+                                <li class="list-group-item px-4">Panthera onca - Jaguar</li>
+                                <li class="list-group-item px-4">Panthera uncia - Leopardo de las nieves</li>
+
+                                <li class="list-group-item bg-light small fw-bold text-muted text-uppercase mt-2">Género Neofelis</li>
+                                <li class="list-group-item px-4">Neofelis nebulosa - Pantera nebulosa</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-top-0 text-center py-3">
+                            <small class="text-muted italic">Se encuentran en todo el mundo excepto Antártida y Oceanía.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container my-5">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{{ asset('img/serval.webp') }}" class="card-img-top custom-card-img" alt="serval">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Serval</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{{ asset('img/gato-del-desierto.jpg') }}" class="card-img-top custom-card-img" alt="gatodeldesierto">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Felis Margarita</h5>
+                            <p class="card-text text-muted">Gato del desierto</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{{ asset('img/Ocelote.jpg') }}" class="card-img-top custom-card-img" alt="ocelote">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Ocelote</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+

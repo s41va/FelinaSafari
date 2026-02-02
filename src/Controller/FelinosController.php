@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
-class FelinosController
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+class FelinosController extends AbstractController
 {
     #[Route('/felinos', name: 'app_felinos')]
     public function index(): Response

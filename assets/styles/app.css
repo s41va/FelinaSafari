@@ -1,3 +1,40 @@
-body {
-    background-color: skyblue;
+.scroll-taxonomia::-webkit-scrollbar {
+    width: 6px;
 }
+.scroll-taxonomia::-webkit-scrollbar-thumb {
+    background-color: #1a2f23;
+    border-radius: 10px;
+}
+/* Aseguramos que el HTML y el Body ocupen toda la pantalla */
+html, body {
+    height: 100%;
+    margin: 0;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* El header y el footer ocupan solo su espacio necesario */
+header, footer {
+    flex-shrink: 0;
+}
+
+/* El bloque de contenido (body) se estira para llenar el espacio sobrante */
+main, .content-wrapper {
+    flex-grow: 1;
+}
+
+
+table{
+    border: black solid 2px;
+    margin: 2rem;
+    padding: 1rem;
+}
+
+ td,th,tr{
+     border: black solid 2px;
+     margin: 2rem;
+ }
