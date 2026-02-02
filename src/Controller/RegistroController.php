@@ -3,8 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\SignUpType;
 use Doctrine\ORM\EntityManagerInterface;
-use http\Client\Request;
+use Symfony\Component\HttpFoundation\Request; // <-- ESTO ES LO CORRECTO
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Attribute\Route;
@@ -14,7 +15,7 @@ class RegistroController extends AbstractController
     #[Route('/registro', name: 'app_registro')]
     public function registro(Request $request, EntityManagerInterface $em, UserPasswordHasherInterface $passwordHasher){
         $usuario = new User();
-        $form = $this->createForm(RegistroType::class, $usuario);
+        $form = $this->createForm(SignUpType::class, $usuario);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // Hashear la contraseña
@@ -23,10 +24,10 @@ class RegistroController extends AbstractController
             $usuario->setPassword($hashedPassword);
             $em->flush();
             $this->addFlash('success', 'Usuario registrado correctamente');
-        return $this->redirectToRoute('login');
+        return $this->redirectToRoute('app_home');
         }
         return $this->render('registro/index.html.twig', [
-            'formulario' => $form->createView()
+            'form' => $form->createView()
         ]);
     }
 }

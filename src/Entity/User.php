@@ -1,14 +1,20 @@
 <?php
 namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
+// Asegúrate de tener este "use" arriba
+use \DateTimeInterface;
+use App\Repository\UserRepository;
+// ¡IMPORTANTE! Añade estos dos importes
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Entity]
 #[ORM\Table(name: 'user')]
-class User
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer', unique: true)]
-    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Entradas::class)]
+    //#[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Entradas::class)]
     private ?int $user_id = null;
     #[ORM\Column(type: 'string', length: 50, unique: true)]
     private ?string $username = null;
@@ -20,7 +26,7 @@ class User
     private ?string $telefono = null;
 
     #[ORM\Column(type: 'datetime')]
-    private ?string $fechaCreacion = null;
+    private ?\DateTimeInterface $fechaCreacion = null;
 
     public function getUserId(): ?int
     {
@@ -53,15 +59,17 @@ class User
         $this->telefono = $telefono;
     }
 
-    public function getFechaCreacion(): ?string
+    public function getFechaCreacion(): ?DateTimeInterface
     {
         return $this->fechaCreacion;
     }
 
-    public function setFechaCreacion(?string $fechaCreacion): void
+    public function setFechaCreacion(?DateTimeInterface $fechaCreacion): void
     {
         $this->fechaCreacion = $fechaCreacion;
     }
+
+
 
     public function getEmail(): ?string
     {
@@ -80,5 +88,20 @@ class User
     {
         $this->password = $password;
         return $this;
+    }
+
+    public function getRoles(): array
+    {
+        return ['ROLE_USER'];
+    }
+
+    public function eraseCredentials(): void
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->email;
     }
 }
