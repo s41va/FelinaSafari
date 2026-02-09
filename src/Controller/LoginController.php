@@ -18,6 +18,9 @@ final class LoginController extends AbstractController
     #[Route('/login', name: 'login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_home');
+        }
         // Obtener el error de login si hay
         $error = $authenticationUtils->getLastAuthenticationError();
         // Último username ingresado por el usuario

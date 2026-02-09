@@ -32,57 +32,19 @@
                         <li class="nav-item ms-lg-3">
                             <a class="btn btn-warning fw-bold px-4" href="{{ path('app_entradas') }}">Comprar Entradas</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link px-3 text-white bi bi-person" href="{{ path('login') }}">Login</a></li>
+                        <li class="nav-item d-flex align-items-center rounded-2 m-2" >
+                            {% if app.user %}
+                                <p class=" text-white font-weight-bold p-2">{{ app.user.username }}</p>
+                                <a class="btn btn-outline-light btn-sm" href="{{ path('logout') }}">Logout</a>
+                            {% else %}
+                                <a class="btn btn-primary btn-sm" href="{{ path('login') }}">Login</a>
+                            {% endif %}
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        {#<div class="navbar navbar-expand-sm border-3 border-bottom border-white" style="background-color: #F2C4A2;">
-            <div class="container-fluid">
-                <a href="#" class="navbar-brand ps-2"><img src="" alt=""></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collaseNavbarContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collaseNavbarContent">
-                    <ul class="navbar-nav me-auto w-100 ">
-                        <li class="nav-item text-sm-center text-start border-3 border-white border-start border-end " >
-                            <a href="/home" class="nav-link">
-                                <i class="bi bi-house"></i>
-                                <span class="ocultar-palabrabarra">Home </span>
 
-                            </a>
-                        </li>
-                        <li class="nav-item text-sm-center text-start border-3 border-white  border-end">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-chat-left-dots"></i>
-                                <span class="ocultar-palabrabarra">felinos</span>
-                            </a>
-                        </li>
-                        <li class="nav-item text-sm-center text-start border-3 border-white border-end">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-map"></i>
-                                <span class="ocultar-palabrabarra">Mapa</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item text-sm-center text-start border-3 border-white  border-end">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-ticket-perforated"></i>
-                                <span class="ocultar-palabrabarra">entradas</span>
-                            </a>
-                        </li>
-                        <li class="nav-item text-sm-center text-start border-3 border-white  border-end">
-                            <a href="/login" class="nav-link">
-                                <i class="bi bi-person"></i>
-                                <span class="ocultar-palabrabarra">Perfil</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>#}
     </header>
 {% endblock %}
 {% block body %}{% endblock %}
@@ -119,37 +81,9 @@
                     <li style="list-style: none;">Ubicacion <i class="bi bi-geo-alt-fill"></i></li>
                 </ul>
             </div>
-
-    </footer>
-    {#<footer id="main-footer" class=" bg-white p-3">
-        <div class="row">
-            <div class="col-4 text-start">
-                <ul>
-                    <li style="list-style: none;"><i class="bi bi-instagram"> Instagram</i></li>
-                    <li style="list-style: none;"><i class="bi bi-facebook"> Facebook</i></li>
-                    <li style="list-style: none;"><i class="bi bi-twitter"> Twitter</i></li>
-                </ul>
-
-            </div>
-            <div class="col-4 text-center ">
-                <ul>
-                    <li style="list-style: none;"><a href="">Aviso Legal</a></li>
-                    <li style="list-style: none;"><a href="">Terminos de Condicion</a></li>
-                    <li style="list-style: none;"><a href="">Licencia</a></li>
-                    <li style="list-style: none;">Logo</li>
-
-                </ul>
-            </div>
-            <div class="col-4 text-end pr-2">
-                <ul class="">
-                    <li style="list-style: none;">Telefono <i class="bi bi-telephone-fill"></i></li>
-                    <li style="list-style: none;">Correo <i class="bi bi-envelope-fill"></i></li>
-                    <li style="list-style: none;">Ubicacion <i class="bi bi-geo-alt-fill"></i></li>
-                </ul>
-            </div>
         </div>
+    </footer>
 
-    </footer>#}
 {% endblock %}
 </body>
 
@@ -157,64 +91,3 @@
 </html>
 
 
-
-{#<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Reserva Felina Jaén{% endblock %}</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-
-    <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #f8f9fa; }
-        .bg-custom-dark { background-color: #1a2f23; } /* Verde monte */
-        .btn-primary-custom { background-color: #2d5a27; border: none; }
-        .btn-primary-custom:hover { background-color: #1e3d1a; }
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-            url('https://images.unsplash.com/photo-1517446376251-536967676e82?auto=format&fit=crop&w=1200');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            color: white;
-            display: flex;
-            align-items: center;
-        }
-    </style>
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-custom-dark sticky-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="#">
-            <i class="bi bi-shield-shaded me-2"></i>FELINOS JAÉN
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#">La Reserva</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Especies</a></li>
-                <li class="nav-item"><a class="nav-link btn btn-warning text-dark ms-lg-3 px-4" href="#">entradas</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-{% block body %}{% endblock %}
-
-<footer class="bg-custom-dark text-light py-5 mt-5">
-    <div class="container text-center">
-        <p class="mb-0">&copy; {{ "now"|date("Y") }} Reserva Natural de felinos - Jaén, España.</p>
-        <small class="text-secondary">Comprometidos con la conservación del Lince Ibérico.</small>
-    </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>#}

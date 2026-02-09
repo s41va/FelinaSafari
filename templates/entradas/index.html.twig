@@ -4,30 +4,33 @@
 
 {% block body %}
 
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Entradas para niños menores de 11 años(incluidos)</h5>
-            <p class="card-text">7€</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+    <div class="d-flex flex-wrap gap-3 m-5">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ asset('img/nenes.jpeg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Entradas para niños menores de 11 años(incluidos)</h5>
+                <p class="card-text">7€</p>
+                <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{{ asset('img/adultos.jpeg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Entradas mayores de 12 años</h5>
+                <p class="card-text">Existe descuento por estudiante del 50%</p>
+                <p class="card-text">12€</p>
+                <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{{ asset('img/ancianos.jpeg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Entradas para Jubilados o mayores de 65</h5>
+                <p class="card-text">8€</p>
+                <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
         </div>
     </div>
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Entradas mayores de 12 años</h5>
-            <p class="card-text">Existe descuento por estudiante del 50%</p>
-            <p class="card-text">12€</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Entradas para Jubilados o mayores de 65</h5>
-            <p class="card-text">8€</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-        </div>
-    </div>
+
 {% endblock %}
 
