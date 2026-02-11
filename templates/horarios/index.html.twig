@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Horarios de Visita{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="card-title mb-0">🕒 Horarios de Apertura</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                <tr class="text-center">
+                                    <th class="text-start ps-4">Turno</th>
+                                    <th>Lunes a Jueves</th>
+                                    <th>Viernes y Sábados</th>
+                                    <th>Domingos</th>
+                                </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                <tr>
+                                    <td class="text-start ps-4 fw-bold text-success">
+                                        ☀️ Mañanas
+                                    </td>
+                                    <td>09:00h - 13:30h</td>
+                                    <td><span class="badge bg-info text-dark">08:00h - 14:30h</span></td>
+                                    <td>08:00h - 13:30h</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-start ps-4 fw-bold text-success">
+                                        🌙 Tardes
+                                    </td>
+                                    <td>15:30h - 20:30h</td>
+                                    <td>15:30h - 21:30h</td>
+                                    <td>15:30h - 21:00h</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        * Los horarios pueden variar en días festivos. Consulta nuestra sección de noticias.
+                    </div>
+                    <div>
+                        Salva
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
