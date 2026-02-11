@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "icons": "^1.0.0"
+  },
+  "devDependencies": {
+    "bootstrap-icons": "^1.13.1"
+  }
+}
