@@ -47,10 +47,14 @@
 
     </header>
 {% endblock %}
-{% block body %}{% endblock %}
+
+<main class="flex-fill">
+    {% block body %}{% endblock %}
+</main>
+
 
 {% block footer %}
-    <footer class="text-light py-4" style="background-color: #1a2f23;">
+    <footer class="mt-auto text-light py-4" style="background-color: #1a2f23;">
         <div class="row">
             <div class="col-4 text-start">
                 <ul>

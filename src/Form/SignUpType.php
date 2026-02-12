@@ -45,10 +45,7 @@ class SignUpType extends AbstractType
                 'label' => 'Fecha de Creacion del Usuario',
                 'attr' => ['placeholder' => 'Introduce la fecha del dia de hoy'],
                 'required' => false,
-            ])
-            ->add('login', SubmitType::class, [
-                'label' => 'Iniciar sesión',
-                'attr' => ['class' => 'btn btn-primary mt-3'],
             ]);
+
     }
 }
