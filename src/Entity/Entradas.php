@@ -12,8 +12,7 @@ class Entradas
     #[ORM\Column(type: 'integer', unique: true)]
     private ?int $entrada_id = null;
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'user_id')]
-    #[ORM\JoinColumn(nullable: false)]
-    #[ORM\Column(type: 'string', unique: true)]
+    #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'user_id',nullable: false)]
     private ?User $user_id = null;
     #[ORM\ManyToOne(targetEntity: TipoEntrada::class)]
     #[ORM\JoinColumn(nullable: false)]

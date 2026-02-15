@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Realizar Donación{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>Simulador de Donaciones</h1>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <div class="card p-4 shadow-sm">
+            <form action="{{ path('app_donacion_procesar') }}" method="post">
+                <div class="mb-3">
+                    <label for="importe" class="form-label">Cantidad a donar (€)</label>
+                    <input type="number" step="0.01" name="importe" id="importe" class="form-control" placeholder="Ej: 50.00" required>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" name="anonimo" value="1" id="anonimoCheck">
+                    <label class="form-check-label" for="anonimoCheck">
+                        Donar de forma anónima
+                    </label>
+                </div>
+
+                {% if app.user %}
+                    <p class="text-muted small">
+                        <i class="fas fa-user"></i> Estás identificado como: <strong>{{ app.user.username }}</strong>.
+                        Si no marcas "anónimo", la donación se guardará en tu historial.
+                    </p>
+                {% else %}
+                    <div class="alert alert-info small">
+                        No has iniciado sesión. Tu donación será <strong>anónima</strong> por defecto.
+                    </div>
+                {% endif %}
+
+                <button type="submit" class="btn btn-primary w-100">Confirmar Donación</button>
+            </form>
+        </div>
+
+        <div class="mt-4">
+            <a href="{{ path('app_donacion_index') }}" class="btn btn-link text-decoration-none">← Volver</a>
+        </div>
+    </div>
+{% endblock %}

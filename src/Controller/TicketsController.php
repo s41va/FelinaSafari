@@ -3,11 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Entradas;
-use App\Repository\TipoEntradaRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\TipoEntradaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class TicketsController extends AbstractController
 {
@@ -42,7 +42,7 @@ class TicketsController extends AbstractController
         $entityManager->flush();
 
         // 5. Feedback
-        $this->addFlash('success', 'Ticket purchased successfully for the reserve!');
+        $this->addFlash('success', 'Ticket comprado correctamente.');
 
         return $this->render('ticket/index.html.twig', [
             'entrada' => $entrada
