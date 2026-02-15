@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Entity;
+use App\Repository\TipoEntradaRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+
 #[ORM\Table(name: 'TipoEntrada')]
+#[ORM\Entity(repositoryClass: TipoEntradaRepository::class)]
 class TipoEntrada
 {
     #[ORM\Id]
