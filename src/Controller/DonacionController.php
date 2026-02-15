@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class DonacionController extends AbstractController
 {
@@ -40,6 +40,6 @@ class DonacionController extends AbstractController
 
         $this->addFlash('success', '¡Gracias por tu donación simulada de ' . $importe . '€!');
 
-        return $this->redirectToRoute('app_donacion_index');
+        return $this->redirectToRoute('app_donacion');
     }
 }
